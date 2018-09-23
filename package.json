@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "browserslist": "^3.2.8",
+    "nodemon": "^1.18.4",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
