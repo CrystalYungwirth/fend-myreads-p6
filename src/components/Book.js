@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
+import Img from 'react-image'
 
 export default class Book extends Component {
   render() {
     return(
-      <div className="book">
-        <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: 'url("http://books.google.com/books/content?id=pD6arNyKyi8C&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70Rw0CCwNZh0SsYpQTkMbvz23npqWeUoJvVbi_gXla2m2ie_ReMWPl0xoU8Quy9fk0Zhb3szmwe8cTe4k7DAbfQ45FEzr9T7Lk0XhVpEPBvwUAztOBJ6Y0QPZylo4VbB7K5iRSk&source=gbs_api")' }}></div>
-          <div className="book-shelf-changer">
+      <React.Fragment>
+        <section className="book-top">
+          <Img
+          src= {[
+            'https://res.cloudinary.com/dacjqekio/image/upload/v1537735449/imagenotavailable.png'
+          ]}
+          style= {{
+            width: 130,
+            height: 190,
+          }}
+          />
+          <form className="book-shelf-changer">
             <select>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
@@ -14,11 +23,12 @@ export default class Book extends Component {
               <option value="read">Read</option>
               <option value="none">None</option>
             </select>
-          </div>
-        </div>
-        <div className="book-title">The Hobbit</div>
-        <div className="book-authors">J.R.R. Tolkien</div>
-      </div>
+          </form>
+        </section>
+        <span className="book-title">The Hobbit</span>
+        <br />
+        <span className="book-authors">J.R.R. Tolkien</span>
+      </React.Fragment>
     )
   }
 }
