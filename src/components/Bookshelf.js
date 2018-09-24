@@ -6,63 +6,30 @@ export default class BookShelf extends Component {
   render() {
     return(
       <React.Fragment>
-        <aside className="bookshelf">
-          <h2 className="bookshelf-title">Currently Reading</h2>
-          <div className="bookshelf-books">
-            <ol className="books-grid">
-              {
-                this.props.books
-                  .filter(book => book.shelf === 'currentlyReading')
-                  .map(book => (
-                    <li className="book" key={book.id}>
-                      <Book
-                        book={book}
-                        updateBookshelf={this.props.updateBookshelf}
-                      />
-                    </li>
-                  ))
-              }
-            </ol>
-          </div>
-        </aside>
-        <aside className="bookshelf">
-          <h2 className="bookshelf-title">Want to Read</h2>
-          <aside className="bookshelf-books">
-            <ol className="books-grid">
-              {
-                this.props.books
-                  .filter(book => book.shelf === 'wantToRead')
-                  .map(book => (
-                    <li key={book.id}>
-                      <Book
-                        book={book}
-                        updateBookshelf={this.props.updateBookshelf}
-                      />
-                    </li>
-                  ))
-              }
-            </ol>
-          </aside>
-        </aside>
-        <aside className="bookshelf">
-          <h2 className="bookshelf-title">Read</h2>
-          <aside className="bookshelf-books">
-            <ol className="books-grid">
-              {
-                this.props.books
-                  .filter(book => book.shelf === 'read')
-                  .map(book => (
-                    <li key={book.id}>
-                      <Book
-                        book={book}
-                        updateBookshelf={this.props.updateBookshelf}
-                      />
-                    </li>
-                  ))
-              }
-            </ol>
-          </aside>
-        </aside>
+        {this.props.shelves.map((shelf) =>
+        <article className="bookshelf">
+            <section>
+                <h2 key={shelf.shelf}>{shelf.title}</h2>
+            </section>
+            <aside className="bookshelf-books">
+              <ol className="books-grid">
+                {
+                  this.props.books
+                    .filter(book => book.shelf === shelf.shelf)
+                    .map(book => (
+                      <li key={book.id}>
+                        <Book
+                          book={book}
+                          updateBookshelf={this.props.updateBookshelf}
+                        />
+                      </li>
+                    ))
+                }
+              </ol>
+            </aside>
+        </article>
+        )}
+
       </React.Fragment>
     )
   }

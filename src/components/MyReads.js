@@ -13,8 +13,9 @@ export default class MyReads extends Component {
 
             <BookShelf
               books={this.props.books}
+              shelves={this.props.shelves}
               updateBookshelf={this.props.updateBookshelf}
-            />
+              />
 
           <OpenSearch />
         </React.Fragment>

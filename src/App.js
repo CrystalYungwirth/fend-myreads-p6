@@ -8,7 +8,21 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    shelves: [
+      {
+        shelf: 'currentlyReading',
+        title: 'Currently Reading'
+      },
+      {
+        shelf: 'wantToRead',
+        title: 'Want to Read'
+      },
+      {
+        shelf: 'read',
+        title: 'Read'
+      }
+    ]
   }
 
   getAllBooks(){
@@ -34,6 +48,7 @@ class BooksApp extends React.Component {
           <Route exact path="/" render={() => (
               <MyReads
                 books={this.state.books}
+                shelves={this.state.shelves}
                 updateBookshelf={this.updateBookshelf}
                 />
             )}/>
