@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import BookShelf from './BookShelf'
+import Bookshelf from './Bookshelf'
 import OpenSearch from './OpenSearch'
 
 export default class MyReads extends Component {
@@ -11,7 +11,7 @@ export default class MyReads extends Component {
             <h1>MyReads</h1>
           </section>
 
-            <BookShelf
+            <Bookshelf
               books={this.props.books}
               shelves={this.props.shelves}
               updateBookshelf={this.props.updateBookshelf}

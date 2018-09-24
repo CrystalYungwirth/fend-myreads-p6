@@ -1,4 +1,4 @@
-// FIXME: map shelves dynamically
+// TODO: finish separate BookshelfBooks component
 import React, { Component } from 'react'
 import Book from './Book'
 

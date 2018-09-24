@@ -34,9 +34,6 @@ body, .app {
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
 }
-.bookshelf-books {
-  text-align: center;
-}
 
 .open-search {
   position: fixed;
@@ -111,7 +108,7 @@ body, .app {
 }
 .books-grid li {
   padding: 10px 15px;
-  text-align: left;
+  text-align: center;
   max-width: 150px;
 }
 
