@@ -56,7 +56,6 @@ export default class SearchPage extends Component {
               onChange={(event) =>
                 this.updateQuery(event.target.value)}
               />
-
           </div>
         </div>
         <div className="search-books-results">
