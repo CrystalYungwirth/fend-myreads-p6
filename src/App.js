@@ -22,7 +22,10 @@ class BooksApp extends React.Component {
         shelf: 'read',
         title: 'Read'
       }
-    ]
+    ],
+
+    SearchResults: [],
+    query: ''
   }
 
   getAllBooks(){
@@ -41,6 +44,27 @@ class BooksApp extends React.Component {
     })
   }
 
+  updateQuery = (query) => {
+    this.setState({
+      query: query
+    })
+    this.updateSearchResults(query);
+  }
+
+  updateSearchResults = (query) => {
+    if (query) {
+      BooksAPI.search(query).then((SearchResults) => {
+        if (SearchResults.error) {
+          this.setState({ SearchResults: [] });
+        } else {
+          this.setState({ SearchResults });
+        }
+      })
+    } else {
+      this.setState({ SearchResults: [] });
+    }
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -56,6 +80,8 @@ class BooksApp extends React.Component {
               <SearchPage
                 books={this.state.books}
                 updateBookshelf={this.updateBookshelf}
+                updateQuery={this.state.updateQuery}
+                updateSearchResults={this.state.updateSearchResults}
                 />
             )}/>
         </Switch>

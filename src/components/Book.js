@@ -26,9 +26,13 @@ export default class Book extends Component {
           />
 
         </section>
-        <span className="book-title">{this.props.book.title}</span>
-        <br />
-        <span className="book-authors">{this.props.book.authors[0]}</span>
+        <p className="book-title">{this.props.book.title}</p>
+        {this.props.book.authors.map((author, i) => (
+          <p key={i}
+            className="book-authors">
+            {author}
+          </p>
+        ))}
       </React.Fragment>
     )
   }
