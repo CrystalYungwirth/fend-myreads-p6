@@ -1,6 +1,7 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
+import 'normalize.css';
 import SearchPage from './components/SearchPage'
 import MyReads from './components/MyReads'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
@@ -10,10 +11,20 @@ class BooksApp extends React.Component {
     books: []
   }
 
-  componentDidMount() {
-    BooksAPI.getAll().then((books) =>
-      this.setState({ books })
-    )
+  getAllBooks(){
+    BooksAPI.getAll().then((books) => {
+        this.setState({ books })
+      })
+  }
+
+  componentDidMount(){
+    this.getAllBooks()
+  }
+
+  updateBookshelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      this.getAllBooks()
+    })
   }
 
   render() {
@@ -23,11 +34,13 @@ class BooksApp extends React.Component {
           <Route exact path="/" render={() => (
               <MyReads
                 books={this.state.books}
+                updateBookshelf={this.updateBookshelf}
                 />
             )}/>
           <Route path="/search" render={() => (
               <SearchPage
                 books={this.state.books}
+                updateBookshelf={this.updateBookshelf}
                 />
             )}/>
         </Switch>
