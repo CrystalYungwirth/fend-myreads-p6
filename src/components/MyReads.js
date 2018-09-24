@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 import BookShelf from './BookShelf'
+import OpenSearch from './OpenSearch'
 
 export default class MyReads extends Component {
   render() {
@@ -10,16 +10,13 @@ export default class MyReads extends Component {
           <section className="list-books-title">
             <h1>MyReads</h1>
           </section>
-          <article className="list-books-content">
+
             <BookShelf
               books={this.props.books}
               updateBookshelf={this.props.updateBookshelf}
             />
-          </article>
-          <nav className="open-search">
-            <Link
-              to='/search'>Add a book</Link>
-          </nav>
+
+          <OpenSearch />
         </React.Fragment>
     )
   }
