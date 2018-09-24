@@ -1,8 +1,8 @@
-// TODO: Separate bookshelf into dynamic component, having a hard time getting the books to sync up when I try
+// FIXME: map shelves dynamically
 import React, { Component } from 'react'
 import Book from './Book'
 
-export default class Bookshelf extends Component {
+export default class BookShelf extends Component {
   render() {
     return(
       <React.Fragment>

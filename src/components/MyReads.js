@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Bookshelf from './Bookshelf'
+import BookShelf from './BookShelf'
+
 export default class MyReads extends Component {
   render() {
     return(
@@ -10,7 +11,7 @@ export default class MyReads extends Component {
             <h1>MyReads</h1>
           </section>
           <article className="list-books-content">
-            <Bookshelf
+            <BookShelf
               books={this.props.books}
               updateBookshelf={this.props.updateBookshelf}
             />

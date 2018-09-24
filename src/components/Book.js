@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BookShelfChanger from './BookShelfChanger'
 // import Img from 'react-image'
 // TODO: I couldn't get the main image to work with the Img from react-image
 // but I think it would be a better way to do it vs. ternary operator
@@ -13,17 +14,17 @@ export default class Book extends Component {
                height: 190,
                width: 130,
             backgroundImage:
-            `url(${this.props.book.imageLinks !== undefined ? this.props.book.imageLinks.thumbnail: ''})`
-          }}></div>
-          <form className="book-shelf-changer">
-            <select>
-              <option value="move" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-            </select>
-          </form>
+              `url(${this.props.book.imageLinks !== undefined ?
+              this.props.book.imageLinks.thumbnail :
+              'https://res.cloudinary.com/dacjqekio/image/upload/v1537735449/imagenotavailable.png'})`
+              }}>
+          </div>
+
+          <BookShelfChanger
+            book={this.props.book}
+            updateBookshelf={this.props.updateBookshelf}
+          />
+
         </section>
         <span className="book-title">{this.props.book.title}</span>
         <br />
