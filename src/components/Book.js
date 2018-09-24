@@ -28,7 +28,7 @@ export default class Book extends Component {
         </section>
         <span className="book-title">{this.props.book.title}</span>
         <br />
-        <span className="book-authors">{this.props.book.author}</span>
+        <span className="book-authors">{this.props.book.authors}</span>
       </React.Fragment>
     )
   }
