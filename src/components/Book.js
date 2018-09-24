@@ -27,8 +27,8 @@ export default class Book extends Component {
 
         </section>
         <p className="book-title">{this.props.book.title}</p>
-        {this.props.book.authors.map((author, i) => (
-          <p key={i}
+        {this.props.book.authors.map((author) => (
+          <p key={author}
             className="book-authors">
             {author}
           </p>

@@ -1,91 +1,87 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import * as BooksAPI from '../BooksAPI'
 import Book from './Book'
-import { Link } from 'react-router-dom'
+import CloseSearch from './CloseSearch'
 
-class SearchPage extends Component {
+export default class SearchPage extends Component {
   state = {
     query: '',
-    SearchResults: []
+    searchResults: []
   }
 
   updateQuery = (query) => {
-    this.setState({
-      query: query
-    })
-    this.updateSearchResults(query);
-  }
-
-  updateSearchResults = (query) => {
-    if (query) {
-      BooksAPI.search(query).then((SearchResults) => {
-        if (SearchResults.error) {
-          this.setState({ SearchResults: [] });
-        } else {
-          this.setState({ SearchResults });
+        this.setState(() => ({
+            query: query
+        }))
+        if (query === '') {
+            this.setState(() => ({
+                searchResults: []
+            }))
         }
-      })
-    } else {
-      this.setState({ SearchResults: [] });
-    }
-  }
-//need to install npm install --save escape-string-regexp sort-by
-  render(){
-    console.log(this.props.SearchResults)
-    return(
-  <div className="search-books">
-    <div className="search-books-bar">
-      <Link
-        to="/"
-        className="close-search">Close</Link>
-      <div className="search-books-input-wrapper">
-        {/*
-          NOTES: The search from BooksAPI is limited to a particular set of search terms.
-          You can find these search terms here:
-          https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-          However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-          you don't find a specific author or title. Every search is limited by search terms.
-        */}
-        <input type="text"
-          placeholder="Search by title or author"
-          value={this.state.query}
-          onChange={(event) =>
-            this.updateQuery(event.target.value)}
-          />
-
-      </div>
-    </div>
-    <div className="search-books-results">
-      <ol className="books-grid">
-        {
-          this.state.SearchResults.map(SearchResults => {
-            let shelf = 'none'
-
-            //I think the componentDidUpdate might work here, try an if <> book[.id]
-            // try doing && books.shelf so that it would still add it to the bookshelf if not both match
-            //why do all of mine show up as currently reading instead of the current shelf? should be synced through code
-            this.props.books.map(book => (
-              book.id === SearchResults.id ?
-              shelf = book.shelf :
-              ''
-            ))
-          return (
-            <li key={SearchResults.id}>
-              <Book
-                book={SearchResults}
-                updateBookshelf={this.props.updateBookshelf}
-                currentShelf={shelf}
-                />
-            </li>
-          )}
-        )
+        else this.updateSearchResults(query)
       }
 
-      </ol>
-    </div>
-  </div>
+    updateSearchResults(query) {
+      BooksAPI.search(query)
+          .then((searchResults) => {
+              this.props.books.forEach(book => {
+                  searchResults.forEach(searchResult => {
+                       (book.id === searchResult.id) ?
+                       searchResult.shelf = book.shelf
+                       :
+                       searchResult.shelf = 'none'
+                     })
+                   })
+              this.setState(() => ({
+                searchResults
+              })
+            )
+          }).catch (event => {
+              this.setState(() => ({
+                  searchResults: []
+              }))
+          })
+  }
+
+  render(){
+    return(
+      <React.Fragment>
+        <div className="search-books-bar">
+          <CloseSearch />
+          <div className="search-books-input-wrapper">
+            <input type="text"
+              placeholder="Search by title or author"
+              value={this.state.query}
+              onChange={(event) =>
+                this.updateQuery(event.target.value)}
+              />
+
+          </div>
+        </div>
+        <div className="search-books-results">
+          <ol className="books-grid">
+            {
+              this.state.searchResults.map(searchResults => {
+                this.props.books.map(book => (
+                  book.id === searchResults.id ?
+                  this.props.books.shelf = book.shelf :
+                  this.props.books.shelf = "none"
+                ))
+
+              return (
+                <li key={searchResults.id}>
+                  <Book
+                    book={searchResults}
+                    updateBookshelf={this.props.updateBookshelf}
+                    />
+                </li>
+              )}
+            )
+          }
+          </ol>
+        </div>
+      </React.Fragment>
 )
 }
 }
-export default SearchPage

@@ -52,17 +52,15 @@ class BooksApp extends React.Component {
   }
 
   updateSearchResults = (query) => {
-    if (query) {
+    (query) ?
       BooksAPI.search(query).then((SearchResults) => {
-        if (SearchResults.error) {
-          this.setState({ SearchResults: [] });
-        } else {
-          this.setState({ SearchResults });
-        }
+        (SearchResults.error) ?
+          this.setState({ SearchResults: [] })
+          :
+          this.setState({ SearchResults })
       })
-    } else {
-      this.setState({ SearchResults: [] });
-    }
+      :
+      this.setState({ SearchResults: [] })
   }
 
   render() {
@@ -80,8 +78,8 @@ class BooksApp extends React.Component {
               <SearchPage
                 books={this.state.books}
                 updateBookshelf={this.updateBookshelf}
-                updateQuery={this.state.updateQuery}
-                updateSearchResults={this.state.updateSearchResults}
+                updateQuery={this.updateQuery}
+                updateSearchResults={this.updateSearchResults}
                 />
             )}/>
         </Switch>
