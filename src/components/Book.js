@@ -1,24 +1,25 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import BookShelfChanger from './BookShelfChanger'
-// import Img from 'react-image'
+import Img from 'react-image'
 // TODO: I couldn't get the main image to work with the Img from react-image
 // but I think it would be a better way to do it vs. ternary operator
 
 export default class Book extends Component {
-  render() {
+  render() {   
     return(
       <React.Fragment>
         <section className="book-top">
-          <div className="book-cover"
-            style={{
-               height: 190,
-               width: 130,
-            backgroundImage:
-              `url(${this.props.book.imageLinks !== undefined ?
-              this.props.book.imageLinks.thumbnail :
-              'https://res.cloudinary.com/dacjqekio/image/upload/v1537735449/imagenotavailable.png'})`
-              }}>
-          </div>
+		<Img src={[this.props.book.imageLinks.thumbnail,
+      				'https://res.cloudinary.com/dacjqekio/image/upload/v1537735449/imagenotavailable.png']}
+  			 container={children => {
+                return (
+                  <div class="book-cover">
+                    {children}
+                  </div>
+                )
+              }}
+            />
 
           <BookShelfChanger
             book={this.props.book}
@@ -37,3 +38,8 @@ export default class Book extends Component {
     )
   }
 }
+
+Book.propTypes = {
+	book: PropTypes.array.isRequired,
+  	updateBookshelf: PropTypes.func.isRequired
+  	}

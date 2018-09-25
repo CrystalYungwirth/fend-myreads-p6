@@ -1,12 +1,14 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import './App.css'
-import 'normalize.css';
-import SearchPage from './components/SearchPage'
-import MyReads from './components/MyReads'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-class BooksApp extends React.Component {
+import './App.css'
+import 'normalize.css';
+
+import * as BooksAPI from './BooksAPI'
+import SearchPage from './components/SearchPage'
+import MyReads from './components/MyReads'
+
+export default class BooksApp extends React.Component {
   state = {
     books: [],
     shelves: [
@@ -35,19 +37,19 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount(){
-    this.getAllBooks()
+    this.getAllBooks();
   }
 
   updateBookshelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
-      this.getAllBooks()
+      this.getAllBooks();
     })
   }
 
   updateQuery = (query) => {
     this.setState({
       query: query
-    })
+    });
     this.updateSearchResults(query);
   }
 
@@ -57,10 +59,10 @@ class BooksApp extends React.Component {
         (SearchResults.error) ?
           this.setState({ SearchResults: [] })
           :
-          this.setState({ SearchResults })
+          this.setState({ SearchResults });
       })
       :
-      this.setState({ SearchResults: [] })
+      this.setState({ SearchResults: [] });
   }
 
   render() {
@@ -80,6 +82,7 @@ class BooksApp extends React.Component {
                 updateBookshelf={this.updateBookshelf}
                 updateQuery={this.updateQuery}
                 updateSearchResults={this.updateSearchResults}
+				getAllBooks={this.getAllBooks}
                 />
             )}/>
         </Switch>
@@ -88,4 +91,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+

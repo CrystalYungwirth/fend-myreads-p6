@@ -7,9 +7,9 @@ export default class BookShelf extends Component {
     return(
       <React.Fragment>
         {this.props.shelves.map((shelf) =>
-        <article className="bookshelf">
+        <article className="bookshelf" key={shelf.shelf}>
             <section>
-                <h2 key={shelf.shelf}>{shelf.title}</h2>
+                <h2>{shelf.title}</h2>
             </section>
             <aside className="bookshelf-books">
               <ol className="books-grid">
