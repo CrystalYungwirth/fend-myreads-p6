@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookShelfChanger from './BookShelfChanger'
 import Img from 'react-image'
-// TODO: I couldn't get the main image to work with the Img from react-image
-// but I think it would be a better way to do it vs. ternary operator
 
 export default class Book extends Component {
   render() {   
@@ -14,7 +12,7 @@ export default class Book extends Component {
       				'https://res.cloudinary.com/dacjqekio/image/upload/v1537735449/imagenotavailable.png']}
   			 container={children => {
                 return (
-                  <div class="book-cover">
+                  <div className="book-cover">
                     {children}
                   </div>
                 )
@@ -40,6 +38,6 @@ export default class Book extends Component {
 }
 
 Book.propTypes = {
-	book: PropTypes.array.isRequired,
+	book: PropTypes.object.isRequired,
   	updateBookshelf: PropTypes.func.isRequired
   	}

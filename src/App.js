@@ -7,6 +7,7 @@ import 'normalize.css';
 import * as BooksAPI from './BooksAPI'
 import SearchPage from './components/SearchPage'
 import MyReads from './components/MyReads'
+import ErrorBoundary from './components/ErrorBoundary'
 
 export default class BooksApp extends React.Component {
   state = {
@@ -24,13 +25,10 @@ export default class BooksApp extends React.Component {
         shelf: 'read',
         title: 'Read'
       }
-    ],
-
-    SearchResults: [],
-    query: ''
+    ]
   }
 
-  getAllBooks(){
+  getAllBooks() {
     BooksAPI.getAll().then((books) => {
         this.setState({ books })
       })
@@ -46,27 +44,9 @@ export default class BooksApp extends React.Component {
     })
   }
 
-  updateQuery = (query) => {
-    this.setState({
-      query: query
-    });
-    this.updateSearchResults(query);
-  }
-
-  updateSearchResults = (query) => {
-    (query) ?
-      BooksAPI.search(query).then((SearchResults) => {
-        (SearchResults.error) ?
-          this.setState({ SearchResults: [] })
-          :
-          this.setState({ SearchResults });
-      })
-      :
-      this.setState({ SearchResults: [] });
-  }
-
   render() {
     return (
+    <ErrorBoundary>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={() => (
@@ -80,13 +60,12 @@ export default class BooksApp extends React.Component {
               <SearchPage
                 books={this.state.books}
                 updateBookshelf={this.updateBookshelf}
-                updateQuery={this.updateQuery}
-                updateSearchResults={this.updateSearchResults}
 				getAllBooks={this.getAllBooks}
                 />
             )}/>
         </Switch>
-    </BrowserRouter>
+      </BrowserRouter>
+	</ErrorBoundary>
     )
   }
 }
