@@ -7,7 +7,7 @@ import 'normalize.css';
 import * as BooksAPI from './BooksAPI'
 import SearchPage from './components/SearchPage'
 import MyReads from './components/MyReads'
-import ErrorBoundary from './components/ErrorBoundary'
+
 
 export default class BooksApp extends React.Component {
   state = {
@@ -46,9 +46,10 @@ export default class BooksApp extends React.Component {
 
   render() {
     return (
-    <ErrorBoundary>
+
       <BrowserRouter>
         <Switch>
+           
           <Route exact path="/" render={() => (
               <MyReads
                 books={this.state.books}
@@ -56,16 +57,16 @@ export default class BooksApp extends React.Component {
                 updateBookshelf={this.updateBookshelf}
                 />
             )}/>
-          <Route path="/search" render={() => (
+
+        	  <Route path="/search" render={() => (
               <SearchPage
                 books={this.state.books}
                 updateBookshelf={this.updateBookshelf}
-				getAllBooks={this.getAllBooks}
                 />
             )}/>
+
         </Switch>
       </BrowserRouter>
-	</ErrorBoundary>
     )
   }
 }
