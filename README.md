@@ -1,3 +1,58 @@
+# MyReads
+
+## Table of Contents
+* [Overview](#overview)
+* [View Page](#view-page)
+* [Dependencies](#dependencies)
+* [Resources](#resources)
+* [Browsers Support](#browsers-support)
+* [Contributions](#contributions)
+* [License](#license)
+* [Starter code README](#Udacity-README)
+
+## Overview
+This project was completed for the Udacity 2018 US Grow with Google Scholarship, as project 6. It is a hypothetical bookshelf where a user can monitor which books they are reading, want to read, and completed. They can also add new books to their collection.
+
+My project needs a lot of work in the future. I wasn't able to successfully separate all components, such as bookshelf books. I wasn't able to modify the approach for the searh page from class into a working version for this project. I think it was a placement issue, it would only filter the books already in my bookshelf. Since I'm behind, I opted to use a walkthrough from a prior student and try to improve her method. 
+
+A few times, whenever I'd get errors, it was recommended by the console to setup Error Boundary. Seemed straight forward! Couldn't get it to work. I do want to put that in in the future. 
+
+## View Page
+### Online
+Not available at this time. Intent is to integrate (react-gh-pages)[https://github.com/gitname/react-gh-pages] in the future.
+
+### localhost
+  1) [Download repository](https://github.com/CrystalYungwirth/fend-restaurant-reviews-stage-1.git) and unzip
+  2)
+  >If you have Python 2.x, spin up the server with python -m SimpleHTTPServer 8000
+   For Python 3.x, you can use python3 -m http.server 8000.
+   If you don't have Python installed, navigate to Python's website to [download and install the software](https://www.python.org/downloads/).
+
+   3) Navigate web browser to [localhost:8000/File-Location](localhost:8000/)
+
+## Dependencies
+ * [react-image](https://www.npmjs.com/package/react-image)
+ * [prop-types](https://www.npmjs.com/package/prop-types)
+ * [react-dom-router](https://www.npmjs.com/package/react-router-dom)
+
+## Resources
+ * I used the [Maeva](https://www.youtube.com/watch?v=i6L2jLHV9j8&t=10558s) walkthrough for help with the search page. 
+
+## Browsers support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------- | --------- | --------- | --------- | --------- |
+| Edge| last 10 versions| last 10 versions| last 10 versions| last 10 versions
+
+
+## Contributions
+I would be interested in reviewing any recommendations, especially related to the areas mentioned in the [Overview](#overview). However, I won't be able to merge requests until after October when I finish the nanodegree program.
+
+## License
+[MIT License](LICENSE)
+
+
+## Udacity README
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
@@ -84,9 +139,3 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
