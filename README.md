@@ -8,7 +8,7 @@
 * [Browsers Support](#browsers-support)
 * [Contributions](#contributions)
 * [License](#license)
-* [Starter code README](#Udacity-README)
+* [Udacity README](#udacity-readme) file from starter code
 
 ## Overview
 This project was completed for the Udacity 2018 US Grow with Google Scholarship, as project 6. It is a hypothetical bookshelf where a user can monitor which books they are reading, want to read, and completed. They can also add new books to their collection.
@@ -22,13 +22,12 @@ A few times, whenever I'd get errors, it was recommended by the console to setup
 Not available at this time. Intent is to integrate (react-gh-pages)[https://github.com/gitname/react-gh-pages] in the future.
 
 ### localhost
-  1) [Download repository](https://github.com/CrystalYungwirth/fend-restaurant-reviews-stage-1.git) and unzip
-  2)
-  >If you have Python 2.x, spin up the server with python -m SimpleHTTPServer 8000
-   For Python 3.x, you can use python3 -m http.server 8000.
-   If you don't have Python installed, navigate to Python's website to [download and install the software](https://www.python.org/downloads/).
-
-   3) Navigate web browser to [localhost:8000/File-Location](localhost:8000/)
+  1) ```clone https://github.com/CrystalYungwirth/fend-myreads-p6.git```
+  2) ```cd fend-myreads-p6```
+  3) ```npm i```
+  4) ```npm start```
+  
+  App will be shown on localhost:3000
 
 ## Dependencies
  * [react-image](https://www.npmjs.com/package/react-image)
