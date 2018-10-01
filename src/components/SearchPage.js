@@ -74,7 +74,7 @@ export default class SearchPage extends Component {
 
                                 <Book 
                                     book={bookOption}
-                                    updateShelf={this.props.updateShelf}
+									updateBookshelf={this.props.updateBookshelf}
                                 />
                             </li>
                         )}
