@@ -30,7 +30,6 @@ Not available at this time. Intent is to integrate (react-gh-pages)[https://gith
   App will be shown on localhost:3000
 
 ## Dependencies
- * [react-image](https://www.npmjs.com/package/react-image)
  * [prop-types](https://www.npmjs.com/package/prop-types)
  * [react-dom-router](https://www.npmjs.com/package/react-router-dom)
  * [throttle-debounce](https://www.npmjs.com/package/throttle-debounce)
