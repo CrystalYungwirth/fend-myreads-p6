@@ -38,10 +38,9 @@ export default class BooksApp extends React.Component {
     this.getAllBooks();
   }
 
-  updateBookshelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(() => {
-      this.getAllBooks();
-    })
+  updateBookshelf = (prevShelf, shelf) => {
+    BooksAPI.update(prevShelf, shelf).then(() => {
+      })
   }
 
   render() {
