@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+
 import * as BooksAPI from '../BooksAPI'
 import Book from './Book'
 import CloseSearch from './CloseSearch'
+
+import { debounce } from 'throttle-debounce'
 import PropTypes from 'prop-types'
-import sortBy from 'sort-by'
+//import sortBy from 'sort-by'
 
 export default class SearchPage extends Component {
   static propTypes = {
@@ -17,7 +20,7 @@ export default class SearchPage extends Component {
         query: '',
         bookOptions: []
     }
-	this.handleChange = this.handleChange.bind(this) //TODO: find notes from other attempts because I know I read somewhere this was preferred over the arrow function, but I can't seem to locate which ReactJS doc that was in again
+	this.updateQuery = debounce(100, this.updateQuery);//TODO: find notes from other attempts because I know I read somewhere this was preferred over the arrow function, but I can't seem to locate which ReactJS doc that was in again
   }  
   
     updateQuery = (query) => {
@@ -55,7 +58,7 @@ export default class SearchPage extends Component {
                             type="text" 
                             placeholder="Search by title or author"
                             value={ this.state.query } 
-                            onChange={this.handleChange} 
+                            onChange={ this.handleChange.bind(this) }
                         />
                     </div>
                 </div>

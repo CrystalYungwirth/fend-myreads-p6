@@ -33,7 +33,8 @@ Not available at this time. Intent is to integrate (react-gh-pages)[https://gith
  * [react-image](https://www.npmjs.com/package/react-image)
  * [prop-types](https://www.npmjs.com/package/prop-types)
  * [react-dom-router](https://www.npmjs.com/package/react-router-dom)
-
+ * [throttle-debounce](https://www.npmjs.com/package/throttle-debounce)
+ 
 ## Resources
  * I used the [Maeva](https://www.youtube.com/watch?v=i6L2jLHV9j8&t=10558s) walkthrough for help with the search page. 
 
