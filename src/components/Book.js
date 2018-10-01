@@ -2,24 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookShelfChanger from './BookShelfChanger'
 import BookCover from './BookCover'
-import BookAuthor from './BookAuthor'
 
 export default class Book extends Component {
   render() {   
     return(
       <React.Fragment>
-        <section className="book-top">
-      	 <BookCover 
-            book={this.props.book}/>
-          <BookShelfChanger
-            book={this.props.book}
-            updateBookshelf={this.props.updateBookshelf}
+        <BookTop
+          book={this.props.book}
+  		  updateBookshelf={this.props.updateBookshelf}
           />
-
-        </section>
-        <p className="book-title">{this.props.book.title}</p>
-        <BookAuthor 
-            book={this.props.book}/> 
+        <BookTitle book={this.props.book} /> 
+        <BookAuthor book={this.props.book} /> 
       </React.Fragment>
     )
   }
@@ -28,4 +21,4 @@ export default class Book extends Component {
 Book.propTypes = {
 	book: PropTypes.object.isRequired,
   	updateBookshelf: PropTypes.func.isRequired
-  	}
+}
