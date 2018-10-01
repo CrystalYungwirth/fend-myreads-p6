@@ -1,24 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookShelfChanger from './BookShelfChanger'
-import Img from 'react-image'
+import BookCover from './BookCover'
+//import Img from 'react-image'
 
 export default class Book extends Component {
   render() {   
     return(
       <React.Fragment>
         <section className="book-top">
-		<Img src={[this.props.book.imageLinks.thumbnail,
-      				'https://res.cloudinary.com/dacjqekio/image/upload/v1537735449/imagenotavailable.png']}
-  			 container={children => {
-                return (
-                  <div className="book-cover">
-                    {children}
-                  </div>
-                )
-              }}
-            />
-
+		  <BookCover book={this.props.book}/>
           <BookShelfChanger
             book={this.props.book}
             updateBookshelf={this.props.updateBookshelf}
