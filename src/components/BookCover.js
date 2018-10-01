@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-//I think this could be a stateless functional component. I'm really struggling with that syntax and using it
 export default class BookCover extends Component {
 	render(){
       return(

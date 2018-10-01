@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-//Essentially the same as BookCover
+//Essentially the same as BookAuthor
 export default class BookTitle extends Component {
 	render(){
       return(

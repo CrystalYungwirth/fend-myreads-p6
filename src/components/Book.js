@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import BookShelfChanger from './BookShelfChanger'
-import BookCover from './BookCover'
+
+import BookTop from './BookTop'
+import BookAuthor from './BookAuthor'
+import BookTitle from './BookTitle'
 
 export default class Book extends Component {
   render() {   
