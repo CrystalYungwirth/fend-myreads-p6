@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import BookShelfChanger from './BookShelfChanger'
 import BookCover from './BookCover'
+import BookAuthor from './BookAuthor'
 
 export default class Book extends Component {
   render() {   
     return(
       <React.Fragment>
         <section className="book-top">
-		  <BookCover book={this.props.book}/>
+      	 <BookCover 
+            book={this.props.book}/>
           <BookShelfChanger
             book={this.props.book}
             updateBookshelf={this.props.updateBookshelf}
@@ -16,12 +18,8 @@ export default class Book extends Component {
 
         </section>
         <p className="book-title">{this.props.book.title}</p>
-        {this.props.book.authors.map((author) => (
-          <p key={author}
-            className="book-authors">
-            {author}
-          </p>
-        ))}
+        <BookAuthor 
+            book={this.props.book}/> 
       </React.Fragment>
     )
   }
