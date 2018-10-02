@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class BookShelfChanger extends Component {
-  handleChange = (books, event) => {
+  handleChange = (prevShelf, event) => {
   	this.updateBookshelf(this.props.books, event.target.value)
   }
   
