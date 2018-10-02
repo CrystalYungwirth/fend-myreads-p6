@@ -4,14 +4,14 @@ export default class BookCover extends Component {
 	render(){
       return(
         this.props.book.imageLinks 
-          ? <div className="book-cover" 
-      		     style={{ 
-                   backgroundImage: `url(${this.props.book.imageLinks.thumbnail 
-      				 				 ? this.props.book.imageLinks.thumbnail 
-      				 				 : ''})` 
-                    }}>
-            </div> 
-         : ''
+          ? <img className="book-cover" 
+      		     src={this.props.book.imageLinks.thumbnail}
+         	     alt= {this.props.book.title}
+                     />
+         : <img className="book-cover" 
+      		    src="https://res.cloudinary.com/dacjqekio/image/upload/c_scale,w_130/v1537735449/imagenotavailable.png"
+				alt="No cover"
+                     />
       )
     }
 }

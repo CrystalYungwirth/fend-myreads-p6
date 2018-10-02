@@ -24,7 +24,7 @@ export default class SearchPage extends Component {
   }
 
   updateQuery = query => {
-    this.setState({ query: query.trim() });
+    this.setState({ query });
     this.searchBooks(query);
   };
 
