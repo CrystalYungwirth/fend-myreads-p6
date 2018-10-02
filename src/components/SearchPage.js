@@ -6,6 +6,7 @@ import CloseSearch from "./CloseSearch";
 
 import { debounce } from "throttle-debounce";
 import PropTypes from "prop-types";
+import escapeRegExp from 'escape-string-regexp'
 //import sortBy from 'sort-by'
 
 export default class SearchPage extends Component {
@@ -26,6 +27,7 @@ export default class SearchPage extends Component {
   updateQuery = query => {
     this.setState({ query: query.trim() });
     this.searchBooks(query);
+    
   };
 
   //The searchBooks method is based off of the Maeva walkthrough, I just spent some time trying to refactor and build upon it.
