@@ -20,7 +20,7 @@ export default class SearchPage extends Component {
       query: "",
       bookOptions: []
     };
-    this.updateQuery = debounce(100, this.updateQuery); //I put this in here because it was a suggestion, but it seems like the keyboard skips letters now.. not sure what I did wrong followed the tutorial https://blog.revathskumar.com/2016/02/reactjs-using-debounce-in-react-components.html
+    this.updateQuery = debounce(100, this.updateQuery); //followed the tutorial https://blog.revathskumar.com/2016/02/reactjs-using-debounce-in-react-components.html
   }
 
   updateQuery = query => {
@@ -40,9 +40,19 @@ export default class SearchPage extends Component {
       : this.setState({ bookOptions: [] });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.updateQuery(event.target.value);
   };
+
+  updateBookshelf = (prevShelf, shelf) => {
+	prevShelf.shelf = shelf    
+    BooksAPI.update(prevShelf, shelf)
+      this.setState((state) => ({
+        bookOptions: [...state.bookOptions.filter((newShelf) => 
+               newShelf.id !== prevShelf.id), 
+               prevShelf]
+      }));
+  }
 
   render() {
     return (
