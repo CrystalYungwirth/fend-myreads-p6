@@ -49,7 +49,7 @@ export default class SearchPage extends Component {
     BooksAPI.update(prevShelf, shelf)
       this.setState((state) => ({
         bookOptions: [...state.bookOptions.filter((newShelf) => 
-               newShelf.id !== prevShelf.id), 
+               newShelf.id !== prevShelf.id), 	
                prevShelf]
       }));
   }
@@ -67,9 +67,6 @@ export default class SearchPage extends Component {
               onChange={this.handleChange.bind(this)}
             />
           </div>
-
-
-
         </div>
         <div className="search-books-results">
 		{/*TODO this can be a component*/}
