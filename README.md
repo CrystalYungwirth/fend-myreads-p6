@@ -22,8 +22,8 @@ A few times, whenever I'd get errors, it was recommended by the console to setup
 Not available at this time. Intent is to integrate (react-gh-pages)[https://github.com/gitname/react-gh-pages] in the future.
 
 ### localhost
-  1) ```clone https://github.com/CrystalYungwirth/fend-myreads-p6.git```
-  2) ```cd fend-myreads-p6```
+  1) ```clone https://github.com/CrystalYungwirth/fudacity-fend-p6-myreads.git```
+  2) ```cd fudacity-fend-p6-myreads```
   3) ```npm i```
   4) ```npm start```
   
