@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import './App.css'
-import 'normalize.css';
+import './normalize.css';
 
 import * as BooksAPI from './BooksAPI'
 import SearchPage from './components/SearchPage'
