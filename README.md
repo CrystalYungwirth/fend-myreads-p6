@@ -18,8 +18,7 @@ My project needs a lot of work in the future. I wasn't able to successfully sepa
 A few times, whenever I'd get errors, it was recommended by the console to setup Error Boundary. Seemed straight forward! Couldn't get it to work. I do want to put that in in the future. 
 
 ## View Page
-### Online
-Not available at this time. Intent is to integrate (react-gh-pages)[https://github.com/gitname/react-gh-pages] in the future.
+### (Online)[https://udacitymyreadsproject.netlify.com]
 
 ### localhost
   1) ```clone https://github.com/crystal-dawn/fudacity-fend-p6-myreads.git```
