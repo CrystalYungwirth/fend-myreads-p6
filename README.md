@@ -21,8 +21,8 @@ A few times, whenever I'd get errors, it was recommended by the console to setup
 ### [Online](https://udacitymyreadsproject.netlify.com)
 
 ### localhost
-  1) ```clone https://github.com/crystal-dawn/fudacity-fend-p6-myreads.git```
-  2) ```cd fudacity-fend-p6-myreads```
+  1) ```clone https://github.com/crystal-dawn/myreads.git```
+  2) ```cd myreads```
   3) ```npm i```
   4) ```npm start```
   
